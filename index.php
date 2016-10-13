@@ -17,11 +17,11 @@ include("includes.php");
 </head>
 <body ng-app="index">
 <div id="MainContainer" ng-controller="rootController">
-    <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="DetailContainer" ng-controller="detailController" ng-include="'indexDetails.html'">
+    <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="ApplicationContainer" ng-controller="applicationController" ng-include="'indexApplication.html'">
     </div>
     <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="CategoryContainer" ng-controller="categoryController" ng-include="'indexCategories.html'">
     </div>
-    <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="ApplicationContainer" ng-controller="applicationController" ng-include="'indexApplication.html'">
+    <div ng-class="{'col-md-4': !Mobile}" ng-if="root.SelectedCategory != -1" class="MainColumn" id="DetailContainer" ng-controller="detailController" ng-include="'indexDetails.html'">
     </div>
 </div>
 </body>

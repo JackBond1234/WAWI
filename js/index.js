@@ -66,8 +66,10 @@ $(document).ready(function(){
             for(var index in $scope.categories){
                 $scope.categories[index].Selected = false;
             }
-            $scope.categories[elementid].Selected = true;
-            $scope.root.SelectedCategory = elementdata.ID;
+            $scope.$apply(function(){
+                $scope.categories[elementid].Selected = true;
+                $scope.root.SelectedCategory = elementdata.ID;
+            });
             //var DB = $("#DetailBubble");
             //var EL = $(".categories-list-item").eq(elementid);
             //

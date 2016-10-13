@@ -1,4 +1,4 @@
-<div id="DetailBubble" ng-if="!Mobile">
+<div id="DetailBubble" ng-if="Details.length">
     <div id="DetailNavBar" ng-include="'detailNavigationBar.html'"></div>
     <div id="DetailContent" ng-repeat="(Key, Detail) in Details">
         {{Detail}}
