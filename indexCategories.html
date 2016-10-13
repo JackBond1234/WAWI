@@ -1,0 +1,27 @@
+<div ng-if="!Mobile || root.ApplicationView=='Categories'">
+    <!--<div class='NavButton' ng-if="Mobile" ng-click="setView('Application')">Application</div>-->
+    <div ng-if="Mobile" id="NavigationContainer" ng-include="'applicationNavigationBar.html'"></div>
+    <div id='CategoryContent'>
+        <div ng-if="categories.loading == true">Loading Categories...</div>
+        <div ng-if="categories.error == true">Unable to load categories.</div>
+        <div dnd-list="categories"
+             dnd-drop="dndDropCallback(list, index, originalindex, item, external)"
+             dnd-on-click="categoryClickHandler(elementid, elementdata)">
+            <div class='categories-list-item'
+                 ng-if="!categories.error && !categories.loading"
+                 ng-repeat="category in categories"
+                 dnd-disable-if="category.Disabled"
+                 dnd-draggable="category"
+                 dnd-effect-allowed="move"
+                 ng-class="{'dndDisabled':category.Disabled}"
+                 data-category-id="{{category.ID}}">
+                    <div class="category-row-details">
+                        <div ng-class="{'category-bridge':category.Selected}" class="not-border-box"></div>
+                        <div class="category-grip-container"><img ng-visible="!category.Disabled" class="category-grip" ng-src="ico/grip.png"/></div>
+                        <div class="category-name">{{category.Name}}</div>
+                        <div class="category-balance">{{category.Balance | currency}}</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

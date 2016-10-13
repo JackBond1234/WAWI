@@ -1,0 +1,10 @@
+<div ng-if="!Mobile || root.ApplicationView!='Categories'">
+    <div id="NavigationContainer" ng-include="'applicationNavigationBar.html'">
+    </div>
+    <div class="ApplicationContentContainer" id="ApplicationReportsContainer" ng-if="root.ApplicationView == 'Reports'" ng-include="'indexApplicationReports.html'">
+    </div>
+    <div class="ApplicationContentContainer" id="ApplicationDistributeContainer" ng-if="root.ApplicationView == 'Distribute'" ng-include="'indexApplicationDistribute.html'">
+    </div>
+    <div class="ApplicationContentContainer" id="ApplicationBankContainer" ng-if="root.ApplicationView == 'Bank'" ng-include="'indexApplicationBank.html'">
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="NavBar curve-top-left curve-top-right">
+    <div class="ListButtonContainer" ng-click="root.ShowDetailMenu=!root.ShowDetailMenu;root.ShowAppMenu=false;root.ShowUserMenu=false" click-off="root.ShowDetailMenu=false"><img class='curve-top-left not-border-box ListButton' ng-src="ico/list.png"/></div>
+    <div class="NavDisplayCategory">{{Details[6]}}</div>
+</div>
+<div ng-if="root.ShowDetailMenu" class="slide-toggle-if MenuPopupContainer">
+    <div class="NavButton" ng-click="root.DetailView = 'Settings'; root.ShowMenu=false">
+        Settings
+    </div>
+    <div class="NavButton" ng-click="root.DetailView = 'Transfer'; root.ShowMenu=false">
+        Transfer
+    </div>
+</div>

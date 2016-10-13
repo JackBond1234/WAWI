@@ -1,0 +1,283 @@
+.dndDraggingSource {
+    display: none;
+}
+
+.categories-list-item{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+    cursor: pointer;
+
+    padding:10px;
+    position:relative;
+    background-color:#FFFFFF;
+    border:1px solid;
+    /*margin-top:-1px;*/
+    margin: 2px;
+    z-index:auto;
+}
+
+.categories-list-item.dndDragging{
+    box-shadow: 0 4px 4px #000000;
+    z-index:2;
+}
+
+.categories-list-item:first-of-type{
+    margin-top:0;
+}
+
+.categories-list-item.dndPlaceholder{
+    padding:10px;
+    padding-top:11px;
+    padding-bottom:11px;
+    position:relative;
+}
+
+.category-grip{
+    display:inline-block;
+    margin-right:10px;
+    vertical-align:middle;
+    width:16px;
+    height:16px;
+}
+
+.categories-list-item .category-balance {
+    float:right;
+    display: inline-block;
+    /*display:table-cell;*/
+    /*max-width:100%;*/
+    /*text-align:right;*/
+}
+
+.categories-list-item .category-name{
+    display:inline;
+    /*display:table-cell;*/
+    /*overflow:hidden;*/
+    /*white-space:nowrap;*/
+    /*text-align:left;*/
+    /*width:100%;*/
+}
+
+.category-row-details{
+    /*display:table;*/
+    /*table-layout:fixed;*/
+}
+
+.category-grip-container{
+    display:inline;
+}
+
+
+
+
+body{
+    margin:0;
+    padding:0;
+    font-family: "Roboto", "Arial", sans-serif;
+}
+
+.NavButton{
+    /*display:table-cell;*/
+    /*width:auto;*/
+    padding:10px 5px;
+    /*margin-right:-4px;*/
+    cursor:pointer;
+}
+
+.NavDisplayCategory{
+    font-family: "Roboto", "Arial", sans-serif;
+    text-align:center;
+    font-size: 20px;
+    padding-top:10px;
+}
+
+.MenuPopupContainer{
+    background-color: #F7CA18;
+    position:absolute;
+    width:100%;
+}
+
+.UserPopupContainer{
+    background-color: #FDE3A7;
+    position:absolute;
+    width:100%;
+}
+
+.ListButton{
+    height:20px;
+    width: 20px;
+    padding:10px;
+    background-color: #F7CA18;
+    cursor:pointer;
+}
+
+.ListButton-right{
+    height:20px;
+    width: 20px;
+    padding:10px;
+    background-color: #FDE3A7;
+    cursor:pointer;
+}
+
+.ListButtonContainer{
+    position:absolute;
+}
+
+.ListButtonContainer-right{
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+.NavBar{
+    background-color: #F5D76E;
+    height:40px;
+}
+
+.curve-top-left{
+    border-top-left-radius: 10px;
+}
+
+.curve-top-right{
+    border-top-right-radius: 10px;
+}
+
+#NavigationContainer{
+    white-space:nowrap;
+    display:table;
+    width:100%;
+    z-index:2;
+}
+
+#CategoryContent{
+    padding-top:42px;
+}
+
+#DetailBubble{
+    margin:2px;
+    margin-right:0;
+    border-radius:10px;
+    border:solid 1px;
+    position:relative;
+}
+
+#DetailContent{
+    padding:10px;
+}
+
+@media(max-width:599px){
+    #NavigationContainer{
+        display:table;
+        position:fixed;
+        white-space:nowrap;
+        width:100%;
+    }
+
+    .ApplicationContentContainer{
+        padding-top: 40px;
+    }
+}
+
+@media(min-width:600px) {
+    .MainColumn{
+        min-height:100%;
+    }
+    /*.NavBar{*/
+        /*margin-left:1px;*/
+    /*}*/
+
+    /*.MenuPopupContainer{*/
+        /*margin-left:1px;*/
+    /*}*/
+
+    /*#MainContainer {*/
+        /*width: 100%;*/
+        /*float: left;*/
+        /*position: relative;*/
+        /*right: 33%;*/
+    /*}*/
+
+    /*#MainContainer2 {*/
+        /*float: left;*/
+        /*width: 100%;*/
+        /*position: relative;*/
+        /*right: 33%;*/
+        /*border-right: solid 1px;*/
+        /*box-sizing: border-box;*/
+    /*}*/
+
+    /*#MainContainer3 {*/
+        /*float: left;*/
+        /*width: 100%;*/
+        /*overflow: hidden;*/
+        /*position: relative;*/
+        /*margin: 0;*/
+    /*}*/
+
+    /*#ApplicationContainer {*/
+        /*float: left;*/
+        /*width: 33%;*/
+        /*position: relative;*/
+        /*left: 66%;*/
+    /*}*/
+
+    /*#CategoryContainer {*/
+        /*float: left;*/
+        /*width: 33%;*/
+        /*position: relative;*/
+        /*left: 66%;*/
+    /*}*/
+
+    /*#DetailContainer {*/
+        /*float: left;*/
+        /*width: 34%;*/
+        /*position: relative;*/
+        /*left: 66%;*/
+    /*}*/
+
+    #CategoryContainer{
+        border-right:solid 1px;
+    }
+}
+
+
+.category-bridge{
+    background-color:#FFFFFF;
+    display:block;
+    position:absolute;
+    right:100%;
+    height:auto;
+    padding:1px;
+    top:-1px;
+    bottom:-1px;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    width: 2px;
+}
+
+
+/*.animate-if {*/
+    /*!*background:white;*!*/
+    /*!*border:1px solid black;*!*/
+    /*!*padding:10px;*!*/
+    /*max-height: 100px;*/
+    /*overflow:hidden;*/
+/*}*/
+
+/*.animate-if.ng-enter, .animate-if.ng-leave {*/
+    /*transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;*/
+/*}*/
+
+/*.animate-if.ng-enter,*/
+/*.animate-if.ng-leave.ng-leave-active {*/
+    /*max-height:1px;*/
+/*}*/
+
+/*.animate-if.ng-leave,*/
+/*.animate-if.ng-enter.ng-enter-active {*/
+    /*max-height:100px;*/
+/*}*/
