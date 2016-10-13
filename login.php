@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+include_once("connections.php");
 include_once("db.php");
 include_once("Models/ResponseModel.php");
 include_once("Models/LoginModel.php");

@@ -12,7 +12,7 @@ include("includes.php");
     <script src="js/dndLists.js"></script>
     <link rel="stylesheet" href="css/index.css">
 <!--    <link rel="stylesheet" href="../js/jqui/jquery-ui.css">-->
-    <link rel="stylesheet" type="text/css" href="/css/grid12.css">
+    <link rel="stylesheet" type="text/css" href="css/grid12.css">
 
 </head>
 <body ng-app="index">
