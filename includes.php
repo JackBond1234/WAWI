@@ -2,6 +2,7 @@
 session_start();
 
 include_once("Utility.php");
+include_once("config.php");
 include_once("connections.php");
 include_once("db.php");
 
@@ -18,7 +19,7 @@ $CheckSessionResult = $LoginService->CheckSessionKey();
 $LoggedInUser = array();
 
 if ($CheckSessionResult->Success != true || $CheckSessionResult->Data == null) {
-    echo "<meta http-equiv=\"refresh\" content=\"0; URL='login.php'\" />";
+    echo "<meta http-equiv=\"refresh\" content=\"0; URL='".Config::ROOT_URL."/login.php'\" />";
     die();
 }
 else

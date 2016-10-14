@@ -1,7 +1,7 @@
 <div class="NavBar">
-<div class="ListButtonContainer" ng-click="root.ShowAppMenu=!root.ShowAppMenu;root.ShowDetailMenu=false;root.ShowUserMenu=false" click-off="root.ShowAppMenu=false"><img class='not-border-box ListButton' ng-src="ico/list.png"/></div>
+<div class="ListButtonContainer" ng-click="root.ShowAppMenu=!root.ShowAppMenu;root.ShowDetailMenu=false;root.ShowUserMenu=false" click-off="root.ShowAppMenu=false"><img class='not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
 <div class="NavDisplayCategory">{{root.ApplicationView}}</div>
-<div class="ListButtonContainer-right" ng-click="root.ShowUserMenu=!root.ShowUserMenu;root.ShowDetailMenu=false;root.ShowAppMenu=false" click-off="root.ShowUserMenu=false"><img class="not-border-box ListButton-right" ng-src="ico/list.png"/></div>
+<div class="ListButtonContainer-right" ng-click="root.ShowUserMenu=!root.ShowUserMenu;root.ShowDetailMenu=false;root.ShowAppMenu=false" click-off="root.ShowUserMenu=false"><img class="not-border-box ListButton-right" ng-src="../../../ico/list.png"/></div>
 </div>
 <div ng-if="root.ShowAppMenu" class="slide-toggle-if MenuPopupContainer">
     <div class="NavButton" ng-click="root.ApplicationView = 'Reports'; root.ShowMenu=false">

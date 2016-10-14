@@ -2,6 +2,7 @@
 session_start();
 
 include_once("connections.php");
+include_once("config.php");
 include_once("db.php");
 include_once("Models/ResponseModel.php");
 include_once("Models/LoginModel.php");
@@ -31,7 +32,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"]))
         {
             $SessionResult = $LoginService->CreateSessionKey($_POST["username"]);
             if ($SessionResult->Success == true) {
-                echo "<meta http-equiv=\"refresh\" content=\"0; URL='index.php'\" />";
+                echo "<meta http-equiv=\"refresh\" content=\"0; URL='".Config::ROOT_URL."/Index/Views/Main/index.php'\" />";
                 die();
             }
             else
