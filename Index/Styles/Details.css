@@ -1,0 +1,33 @@
+#DetailBubble {
+    min-height: 70px;
+}
+
+#DetailContent{
+    padding:10px;
+}
+
+@media(max-width:599px){
+    #DetailContainer{
+        z-index:3;
+        position:fixed;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+    }
+
+    #DetailBubble{
+        background-color:#FFFFFF;
+    }
+}
+
+@media(min-width:600px) {
+    #DetailBubble{
+        margin:2px;
+        margin-right:0;
+        border-radius:10px;
+        border:solid 1px;
+        position:relative;
+        background-color: #FFFFFF;
+    }
+}

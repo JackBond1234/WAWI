@@ -1,0 +1,104 @@
+.NavButton{
+    /*display:table-cell;*/
+    /*width:auto;*/
+    padding:10px 5px;
+    /*margin-right:-4px;*/
+    cursor:pointer;
+}
+
+.NavDisplayCategory{
+    font-family: "Roboto", "Arial", sans-serif;
+    text-align:center;
+    font-size: 20px;
+    padding-top:10px;
+}
+
+.PopupContainer {
+    position:absolute;
+    width:100%;
+    z-index:4;
+}
+
+.MenuPopupContainer{
+    background-color: #F7CA18;
+}
+
+.UserPopupContainer{
+    background-color: #FDE3A7;
+}
+
+.FirstPopupContainer{
+    background-color: #BDC3C7;
+}
+
+.SecondPopupContainer{
+    background-color: #EEEEEE;
+}
+
+#CategoryContainer .ListButton {
+    background-color: #BDC3C7;
+}
+
+#CategoryContainer .ListButton-right {
+    background-color: #EEEEEE;
+}
+
+#CategoryContainer .NavBar {
+    background-color: #D2D8DA;
+}
+
+#ApplicationContainer .ListButton {
+    background-color: #F7CA18;
+}
+
+#ApplicationContainer .ListButton-right {
+    background-color: #FDE3A7;
+}
+
+#ApplicationContainer .NavBar {
+    background-color: #F5D76E;
+}
+
+.ListButton{
+    height:20px;
+    width: 20px;
+    padding:10px;
+    cursor:pointer;
+}
+
+.ListButton-right{
+    height:20px;
+    width: 20px;
+    padding:10px;
+    cursor:pointer;
+}
+
+.ListButtonContainer{
+    position:absolute;
+}
+
+.ListButtonContainer-right{
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+.NavBar{
+    height:40px;
+}
+
+#NavigationContainer{
+    white-space:nowrap;
+    display:table;
+    width:100%;
+}
+
+@media(max-width:599px){
+    #NavigationContainer{
+        display:table;
+        position:fixed;
+        white-space:nowrap;
+        width:100%;
+        z-index:5;
+    }
+}

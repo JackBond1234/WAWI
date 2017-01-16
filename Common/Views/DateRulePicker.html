@@ -1,0 +1,61 @@
+<select id="whenToPerformAction">
+    <option value="0">On a specific date</option>
+    <option value="1">Periodically</option>
+</select>
+<br>
+<span> starting on </span>
+
+<input id="actionStartDate">
+<br>
+<span> and on every </span>
+
+<input id="nth-unit">
+
+<span>th </span>
+
+<select id="unit-type">
+    <option value="0">day</option>
+    <option value="1">week</option>
+    <option value="2">month</option>
+    <option value="3">year</option>
+</select>
+<br>
+<select id="use-dayofweek-or-lastday">
+    <option value="0">on the same day of the month as the start</option>
+    <option value="1">on the same week of the month and day of week as the start</option>
+    <option value="2">on the last day of the month</option>
+</select>
+<br>
+<span> if the day does not exist </span>
+
+<select id="impossible-date">
+    <option value="0">perform the operation at the end of the month instead</option>
+    <option value="1">do not perform the operation</option>
+</select>
+
+<!--
+
+On a specific date
+Periodically
+
+starting on
+
+Date
+
+and on every
+
+nth
+
+Day
+Week
+Month
+Year
+
+On the same day of the month as the start
+On the same week and day of week as the start
+On the last day of the month
+
+if the day does not exist
+
+perform the operation at the end of the month instead
+do not perform the operation

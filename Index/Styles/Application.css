@@ -1,0 +1,12 @@
+#ApplicationContainer{
+    position:fixed;
+    border-right: solid 1px #000000;
+    min-height:100vh;
+    background-color: #FFFFFF;
+}
+
+@media(max-width:599px){
+    .ApplicationContentContainer {
+        padding-top: 40px;
+    }
+}
