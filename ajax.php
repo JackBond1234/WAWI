@@ -112,6 +112,7 @@ if(count($_POST) > 0 && isset($_POST["method"]))
     }
     else if ($_POST["method"] == "get_category")
     {
+        sleep(1);
         $CategoriesDataAccess = new CategoriesDataAccess();
         $returnModel = CategoriesBusinessObject::FirstResultToModel($CategoriesDataAccess->SelectById($_POST["catid"]));
         $returnArray = $returnModel->toArray();

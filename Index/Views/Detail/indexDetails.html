@@ -1,6 +1,34 @@
-<div id="DetailBubble" ng-if="Details.length">
+<div id="DetailBubble" ng-style="{'top' : calculateDetailTop()}">
     <div id="DetailNavBar" ng-include="'../Detail/detailNavigationBar.html'"></div>
-    <div id="DetailContent" ng-repeat="(Key, Detail) in Details">
-        {{Detail}}
+    <div id="DetailContent" ng-if="Details.Name!='Loading...'">
+        <table>
+            <tr>
+                <td>
+                    <label for="CategoryName">Category&nbsp;Name</label>
+                </td>
+                <td>
+                    <input type="text" ng-model="Details.Name" id="CategoryName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="AccrueBy">Accrue&nbsp;By</label>
+                </td>
+                <td>
+                    <select id="AccrueBy" ng-model="Details.AccrueBy">
+                        <option value="0">Flat Amount</option>
+                        <option value="1">Individual Percent</option>
+                        <option value="2">Group Percent</option>
+                        <option value="3">Calculated Amounts</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Target&nbsp;Date(s)</label>
+                </td>
+                <td ng-include="'../../../Common/Views/DateRulePicker.html'"></td>
+            </tr>
+        </table>
     </div>
 </div>

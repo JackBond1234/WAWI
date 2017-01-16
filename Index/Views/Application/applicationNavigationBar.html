@@ -3,23 +3,23 @@
 <div class="NavDisplayCategory">{{root.ApplicationView}}</div>
 <div class="ListButtonContainer-right" ng-click="root.ShowUserMenu=!root.ShowUserMenu;root.ShowDetailMenu=false;root.ShowAppMenu=false" click-off="root.ShowUserMenu=false"><img class="not-border-box ListButton-right" ng-src="../../../ico/list.png"/></div>
 </div>
-<div ng-if="root.ShowAppMenu" class="slide-toggle-if MenuPopupContainer">
-    <div class="NavButton" ng-click="root.ApplicationView = 'Reports'; root.ShowMenu=false">
+<div ng-if="root.ShowAppMenu" class="slide-toggle-if PopupContainer MenuPopupContainer">
+    <div class="NavButton" ng-click="root.ApplicationView = 'Reports'; root.ShowAppMenu=false">
         Reports
     </div>
-    <div class="NavButton" ng-click="root.ApplicationView = 'Distribute'; root.ShowMenu=false">
+    <div class="NavButton" ng-click="root.ApplicationView = 'Distribute'; root.ShowAppMenu=false">
         Distribute
     </div>
-    <div class="NavButton" ng-click="root.ApplicationView = 'Bank'; root.ShowMenu=false">
+    <div class="NavButton" ng-click="root.ApplicationView = 'Bank'; root.ShowAppMenu=false">
         Bank
     </div>
-    <div class="NavButton" ng-if='Mobile' ng-click="root.ApplicationView = 'Categories'; root.ShowMenu=false">
+    <div class="NavButton" ng-if='Mobile' ng-click="root.ApplicationView = 'Categories'; root.ShowAppMenu=false">
         Categories
     </div>
 </div>
 
-<div ng-if="root.ShowUserMenu" class="slide-toggle-if UserPopupContainer">
-    <div class="NavButton" ng-click="root.ApplicationView = 'User Profile'; root.ShowMenu=false">
+<div ng-if="root.ShowUserMenu" class="slide-toggle-if PopupContainer UserPopupContainer">
+    <div class="NavButton" ng-click="root.ApplicationView = 'User Profile'; root.ShowUserMenu=false">
         User Profile
     </div>
 </div>

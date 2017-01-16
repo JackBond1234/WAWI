@@ -1,6 +1,6 @@
 <div ng-if="!Mobile || root.ApplicationView=='Categories'">
     <!--<div class='NavButton' ng-if="Mobile" ng-click="setView('Application')">Application</div>-->
-    <div ng-if="Mobile" id="NavigationContainer" ng-include="'applicationNavigationBar.html'"></div>
+    <div id="NavigationContainer" ng-include="'../Categories/categoriesNavigationBar.html'"></div>
     <div id='CategoryContent'>
         <div ng-if="categories.loading == true">Loading Categories...</div>
         <div ng-if="categories.error == true">Unable to load categories.</div>
@@ -10,17 +10,21 @@
             <div class='categories-list-item'
                  ng-if="!categories.error && !categories.loading"
                  ng-repeat="category in categories"
+                 ng-style="{'background' : '-webkit-linear-gradient(left, '+category.Color+' 42px, white 42px)'}"
                  dnd-disable-if="category.Disabled"
                  dnd-draggable="category"
                  dnd-effect-allowed="move"
-                 ng-class="{'dndDisabled':category.Disabled}"
-                 data-category-id="{{category.ID}}">
-                    <div class="category-row-details">
-                        <div ng-class="{'category-bridge':category.Selected}" class="not-border-box"></div>
-                        <div class="category-grip-container"><img ng-visible="!category.Disabled" class="category-grip" ng-src="../../../ico/grip.png"/></div>
-                        <div class="category-name">{{category.Name}}</div>
-                        <div class="category-balance">{{category.Balance | currency}}</div>
-                    </div>
+                 ng-class="{'dndDisabled':category.Disabled, 'ActiveCategory':root.SelectedCategory == category.ID}"
+                 data-category-id="{{category.ID}}"
+                 dnd-animation-complete="dragAnimationComplete()">
+                <div ng-class="{'category-bridge':category.Selected}" class="not-border-box"></div>
+                    <table class="category-row-details">
+                        <tr>
+                            <td class="category-grip-container"><img ng-visible="!category.Disabled" class="category-grip" ng-src="../../../ico/grip.png"/></td>
+                            <td class="category-name"><div class="category-name-container">&nbsp;{{category.Name}}</div></td>
+                            <td class="category-balance">{{category.Balance | currency}}</td>
+                        </tr>
+                    </table>
             </div>
         </div>
     </div>

@@ -1,12 +1,15 @@
-<div class="NavBar curve-top-left curve-top-right">
-    <div class="ListButtonContainer" ng-click="root.ShowDetailMenu=!root.ShowDetailMenu;root.ShowAppMenu=false;root.ShowUserMenu=false" click-off="root.ShowDetailMenu=false"><img class='curve-top-left not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
-    <div class="NavDisplayCategory">{{Details[6]}}</div>
+<div class="NavBar curve-top-left curve-top-right" ng-style="{'background-color': Details.Color}">
+    <div class="ListButtonContainer" ng-show="Details.Success" ng-click="root.ShowDetailMenu=!root.ShowDetailMenu;root.ShowAppMenu=false;root.ShowUserMenu=false" click-off="root.ShowDetailMenu=false"><img ng-style="{'background-color': changeBrightness(Details.Color, -0.25)}" class='curve-top-left not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
+    <div class="NavDisplayCategory">{{Details.Name}}</div>
 </div>
-<div ng-if="root.ShowDetailMenu" class="slide-toggle-if MenuPopupContainer">
+<div ng-style="{'background-color': changeBrightness(Details.Color, -0.25)}" ng-if="root.ShowDetailMenu" class="slide-toggle-if PopupContainer DetailPopupContainer">
     <div class="NavButton" ng-click="root.DetailView = 'Settings'; root.ShowMenu=false">
+        Info
+    </div>
+    <div class="NavButton" ng-click="root.DetailView = 'Transfer'; root.ShowMenu=false">
         Settings
     </div>
     <div class="NavButton" ng-click="root.DetailView = 'Transfer'; root.ShowMenu=false">
-        Transfer
+        Manage Balance
     </div>
 </div>

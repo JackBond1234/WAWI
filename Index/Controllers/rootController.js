@@ -7,9 +7,13 @@ angular.module('index').controller('rootController', function($scope, $log, $win
         });
     });
 
-    $scope.root = {ApplicationView: $window.innerWidth < 599 ? "Categories" : "Reports",
-                   ShowAppMenu: false,
-                   ShowDetailMenu: false,
-                   ShowUserMenu: false,
-                   SelectedCategory: -1};
+    $scope.root = {
+        ApplicationView: $window.innerWidth < 599 ? "Categories" : "Reports",
+        ShowAppMenu: false,
+        ShowDetailMenu: false,
+        ShowUserMenu: false,
+        ShowFirstMenu: false,
+        ShowSecondMenu: false,
+        SelectedCategory: -1
+    };
 });

@@ -9,6 +9,29 @@ angular.module('index').controller('categoryController', function($scope, $log, 
     $scope.$log = $log;
     refresh();
 
+    $scope.dragAnimationComplete = function(){
+        console.log("Drag Animation Complete!!!");
+        var DB = $("#DetailBubble");
+        var EL = $(".categories-list-item.ActiveCategory");
+
+        if (DB.length > 0 && EL.length > 0) {
+            var body = document.body,
+                html = document.documentElement;
+            var docheight = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+            var proposedTop = EL.offset().top + EL.outerHeight() / 2 - DB.outerHeight() / 2;
+
+            if (proposedTop + DB.outerHeight() > docheight) {
+                proposedTop = docheight - DB.outerHeight();
+            }
+            if (proposedTop < 0) {
+                proposedTop = 0;
+            }
+            DB.clearQueue().animate({top: proposedTop}, 200);
+        }
+    };
+
     $scope.categoryClickHandler = function(elementid, elementdata){
         for(var index in $scope.categories){
             $scope.categories[index].Selected = false;
@@ -17,22 +40,6 @@ angular.module('index').controller('categoryController', function($scope, $log, 
             $scope.categories[elementid].Selected = true;
             $scope.root.SelectedCategory = elementdata.ID;
         });
-        //var DB = $("#DetailBubble");
-        //var EL = $(".categories-list-item").eq(elementid);
-        //
-        //var body = document.body,
-        //    html = document.documentElement;
-        //var docheight = Math.max(body.scrollHeight, body.offsetHeight,
-        //    html.clientHeight, html.scrollHeight, html.offsetHeight);
-        //
-        //DB.html(DB.html() + "<br>TEST");
-        //
-        //var proposedTop = EL.offset().top + EL.outerHeight()/2 - DB.outerHeight()/2;
-        //
-        //if(proposedTop + DB.outerHeight() > docheight) {
-        //    proposedTop = docheight - DB.outerHeight();
-        //}
-        //DB.css({top: proposedTop});
     };
 
     $scope.dndDropCallback = function(list, index, originalindex, item, external){
@@ -41,18 +48,25 @@ angular.module('index').controller('categoryController', function($scope, $log, 
             console.log("Invokation index: " + index);
             console.log("Original index: " + originalindex);
 
-            $scope.$apply(function(){
-                var newlist = [];
-                for(var listindex in list){
-                    for (var catindex in $scope.categories){
-                        if (list[listindex].ID == $scope.categories[catindex].ID){
-                            list[listindex].Selected = $scope.categories[catindex].Selected;
-                            break;
-                        }
+            for(var listindex in list){
+                for (var catindex in $scope.categories){
+                    if (list[listindex].ID == $scope.categories[catindex].ID){
+                        list[listindex].Selected = $scope.categories[catindex].Selected;
+                        break;
                     }
                 }
+            }
 
-                //var newlist = list;
+            //This garbage is necessary because if you simply overwrite the list,
+            //there will be an angular digest in which this variable contains the
+            //old list and the new list concatenated together for no discernable
+            //reason. This causes watchers like the detailbubble positioner to go
+            //insane. If there is a better solution, I would love to use it...
+            $scope.$apply(function(){
+                $scope.categories = [];
+            });
+
+            $scope.$apply(function(){
                 $scope.categories = list;
             });
 
@@ -80,6 +94,7 @@ angular.module('index').controller('categoryController', function($scope, $log, 
                                 ID: curcat,
                                 Name: data.categories[curcat].Name,
                                 Balance: data.categories[curcat].Balance,
+                                Color: data.categories[curcat].Color,
                                 Selected: false,
                                 Disabled: false
                             });

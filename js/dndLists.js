@@ -20,21 +20,21 @@ angular.module('dndLists', [])
             function handleMouseDown(event){
                 if (!$parse(attr.dndDisableIf)(scope, {event: event})) {
                     event = event.originalEvent || event;
-                    console.log(event.type);
+                    //console.log(event.type);
                     var touchedelement;
                     if (event.type == "touchstart") {
-                        console.log(event.touches[0].pageY - $(window).scrollTop());
+                        //console.log(event.touches[0].pageY - $(window).scrollTop());
                         touchedelement = $(document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY - $(window).scrollTop()));
                     }
                     if (event.which == 1 || (event.type == "touchstart" && (touchedelement.is(".category-grip") || (touchedelement.is(element) && event.touches[0].pageX - touchedelement.offset().left < 40)))) {
                         if (!$(".dndDragging").is(".dndAnimating")) {
                             $(".dndDragging").removeClass("dndDragging");
-                            console.log(element);
+                            //console.log(element);
                             element.addClass("dndDragging");
-                            console.log($(".categories-list-item").index(element));
+                            //console.log($(".categories-list-item").index(element));
                             element.data("originalindex", $(".categories-list-item").index(element));
                         } else {
-                            console.log("Queueing unclick because dndDragging already exists, even though we have a click down");
+                            //console.log("Queueing unclick because dndDragging already exists, even though we have a click down");
                             $(".dndDragging").addClass("dndQueueUnclick");
                         }
                     }
@@ -62,10 +62,10 @@ angular.module('dndLists', [])
                     var listItemNode = event.customtarget || event.target;
                     if (!$(".dndDragging").is(".dndQueueUnclick")) {
                         if ($(".dndDragging").prevAll().is($(listItemNode))) {
-                            console.log("Mouse enter says move up (trigger move up)");
+                            //console.log("Mouse enter says move up (trigger move up)");
                             moveDraggingObject(listItemNode, "up");
                         } else if ($(".dndDragging").nextAll().is($(listItemNode))) {
-                            console.log("Mouse enter says move down (trigger move down)");
+                            //console.log("Mouse enter says move down (trigger move down)");
                             moveDraggingObject(listItemNode, "down");
                         }
                     }
@@ -89,9 +89,9 @@ angular.module('dndLists', [])
             }
 
             function moveDraggingObject(listItemNode, direction){
-                console.log(direction);
+                //console.log(direction);
                 if (!$(listItemNode).is(".dndAnimating") && !$(".dndDragging").is(".dndAnimating") && !getAdjacent($(listItemNode), direction).is(".dndDragging")) {
-                    console.log("Nothing animating and draggable is not "+direction+" enough yet");
+                    //console.log("Nothing animating and draggable is not "+direction+" enough yet");
                     templistitemnode = getAdjacent($(".dndDragging"), direction);
                     var speed = 100;
                     if (!templistitemnode.is(listItemNode)){
@@ -99,6 +99,7 @@ angular.module('dndLists', [])
                     }
                     templistitemnode.addClass("dndAnimating");
                     $(".dndDragging").addClass("dndAnimating");
+                    $(".dndDragging").addClass("dndHasAnimated");
                     var distance = templistitemnode[0].offsetTop - $(".dndDragging")[0].offsetTop;
                     $.when(templistitemnode.animate({
                             top: -distance
@@ -106,25 +107,26 @@ angular.module('dndLists', [])
                         $(".dndDragging").animate({
                             top: distance
                         }, speed)).done(function () {
-                        console.log("Done animating");
+                        $parse(attr.dndAnimationComplete)(scope, {});
+                        //console.log("Done animating");
                         templistitemnode.removeClass("dndAnimating").css("top", "");
                         $(".dndDragging").removeClass("dndAnimating").css("top", "");
                         insertAdjacent(templistitemnode, $(".dndDragging"), direction);
                         if (!getAdjacent($(listItemNode), direction).is(".dndDragging")){
-                            console.log("Draggable still isn't "+direction+" enough yet (trigger move "+direction+")");
+                            //console.log("Draggable still isn't "+direction+" enough yet (trigger move "+direction+")");
                             moveDraggingObject(listItemNode, direction);
                         } else if ($(".dndDelayedTarget").length > 0) {
-                            console.log("Draggable is "+direction+" enough, but there is a delayed target");
+                            //console.log("Draggable is "+direction+" enough, but there is a delayed target");
                             if ($(".dndDragging").nextAll().is(".dndDelayedTarget")){
-                                console.log("Delayed target is below (trigger move down)");
+                                //console.log("Delayed target is below (trigger move down)");
                                 moveDraggingObject($(".dndDelayedTarget")[0], "down");
                             } else if ($(".dndDragging").prevAll().is(".dndDelayedTarget")){
-                                console.log("Delayed target is above (trigger move up)");
+                                //console.log("Delayed target is above (trigger move up)");
                                 moveDraggingObject($(".dndDelayedTarget")[0], "up");
                             }
                             $(".dndDelayedTarget").removeClass("dndDelayedTarget");
                         } else if ($(".dndDragging").is(".dndQueueUnclick")){
-                            console.log("Button was released so a queued unclick takes effect");
+                            //console.log("Button was released so a queued unclick takes effect");
                             var data = $(".dndDragging").data("dndData");
                             var transferredObject;
                             try {
@@ -146,9 +148,9 @@ angular.module('dndLists', [])
                         }
                     });
                 } else if ($(listItemNode).is(".dndAnimating") || $(".dndDragging").is(".dndAnimating")){
-                    console.log("We were busy animating, so we'll queue one up for later");
+                    //console.log("We were busy animating, so we'll queue one up for later");
                     if ($(listItemNode).is(".dndAnimating")){
-                        console.log("Or so we would, but the queued target is already the one moving");
+                        //console.log("Or so we would, but the queued target is already the one moving");
                     } else {
                         $(".dndDelayedTarget").removeClass("dndDelayedTarget");
                         $(listItemNode).addClass("dndDelayedTarget");
@@ -161,7 +163,7 @@ angular.module('dndLists', [])
         return function(scope, element, attr){
 
             element.on("mouseup touchend", function(){
-                console.log(event.type);
+                //console.log(event.type);
                 if ($(".dndDragging").length > 0) {
                     if (!$(".dndDragging").is(".dndAnimating")) {
                         var data = $(".dndDragging").data("dndData");
@@ -194,15 +196,17 @@ angular.module('dndLists', [])
                                 originalindex: originalindex,
                                 item: transferredObject || undefined
                             });
-                        } else {
+                        } else if (!$(".categories-list-item").is(".dndHasAnimated")){
                             $parse(attr.dndOnClick)(scope, {
                                 event: event,
                                 elementid: $(".categories-list-item").index(dnddragging),
                                 elementdata: transferredObject
                             });
+                        } else {
+                            $(".categories-list-item").removeClass("dndHasAnimated");
                         }
                     } else {
-                        console.log("Queueing unclick because dndDragging is currently animating");
+                        //console.log("Queueing unclick because dndDragging is currently animating");
                         $(".dndDragging").addClass("dndQueueUnclick");
                         $(".dndDragging").data("dndDrop", attr.dndDrop);
                     }
@@ -350,7 +354,7 @@ angular.module('dndLists', [])
 //        element.on('dragleave', function(event) {
 //            //event = event.originalEvent || event;
 //            //
-//            //console.log(event);
+//            ////console.log(event);
 //            //element.removeClass("dndDragover");
 //            //$timeout(function () {
 //            //    if (!element.hasClass("dndDragover")) {
