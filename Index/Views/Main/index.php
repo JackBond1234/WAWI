@@ -27,7 +27,7 @@ include("../../../includes.php");
 </head>
 <body ng-app="index">
 <div id="MainContainer" ng-controller="rootController">
-    <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="ApplicationContainer" ng-controller="applicationController" ng-include="'../Application/indexApplication.html'">
+    <div ng-if="!Mobile || root.ApplicationView!='Categories'" ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="ApplicationContainer" ng-controller="applicationController" ng-include="'../Application/indexApplication.html'">
     </div>
     <div id="PlaceholderContainer" ng-class="{'col-md-4': !Mobile}"></div>
     <div ng-class="{'col-md-4': !Mobile}" class="MainColumn" id="CategoryContainer" ng-controller="categoryController" ng-include="'../Categories/indexCategories.html'">

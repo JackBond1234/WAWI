@@ -33,6 +33,7 @@ angular.module('index').controller('categoryController', function($scope, $log, 
     };
 
     $scope.categoryClickHandler = function(elementid, elementdata){
+        var oldIndex = $scope.root.SelectedCategory;
         for(var index in $scope.categories){
             $scope.categories[index].Selected = false;
         }
@@ -40,6 +41,18 @@ angular.module('index').controller('categoryController', function($scope, $log, 
             $scope.categories[elementid].Selected = true;
             $scope.root.SelectedCategory = elementdata.ID;
         });
+
+        //THIS IS UGLY. SEE IF POSSIBLE TO CONVERT THIS TO A CLASS ANIMATION
+        setTimeout(function(){
+            if (oldIndex != elementdata.ID) {
+                var element = $("#DetailBubble");
+                var width = $(element).width();
+                $(element).width(0);
+                $(element).animate({width: width + "px"}, 200, 0, function () {
+                    $(element).css('width', 'auto');
+                });
+            }
+        }, 1);
     };
 
     $scope.dndDropCallback = function(list, index, originalindex, item, external){

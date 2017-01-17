@@ -12,3 +12,16 @@ app.animation('.slide-toggle-if', [function(){
         }
     };
 }]);
+
+app.animation('.slide-toggle-right-if', [function(){
+    return {
+        enter: function(element, doneFn){
+            var width = $(element).width();
+            $(element).width(0);
+            $(element).animate({width: width + "px"}, 200, 0, function(){$(element).css('width', 'auto'); doneFn();});
+        },
+        leave: function(element, doneFn){
+            $(element).animate({width:0},200,undefined,doneFn);
+        }
+    };
+}]);

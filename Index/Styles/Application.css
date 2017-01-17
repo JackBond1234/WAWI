@@ -1,8 +1,13 @@
 #ApplicationContainer{
-    position:fixed;
-    border-right: solid 1px #000000;
-    min-height:100vh;
     background-color: #FFFFFF;
+    min-height:100vh;
+}
+
+@media(min-width:600px){
+    #ApplicationContainer{
+        position:fixed;
+        border-right: solid 1px #000000;
+    }
 }
 
 @media(max-width:599px){
