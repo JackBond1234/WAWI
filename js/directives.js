@@ -10,6 +10,7 @@ app.directive('clickOff', function($parse, $document) {
                 // add a click handler to the element that
                 // stops the event propagation.
                 element.bind("click", function(event) {
+                    console.log("Stopping propagation");
                     event.stopPropagation();
                 });
                 angular.element($document[0].body).bind("click", function(event) {
@@ -27,7 +28,7 @@ app.directive('ngVisible', function($parse){
         compile: function ($element, attr) {
             var fn = $parse(attr["ngVisible"]);
             return function (scope, element, attr) {
-                scope.$watch(attr["ngVisible"], function(visibility) {
+                scope.$watch(fn, function(visibility) {
                     element.css("visibility", visibility ? "visible" : "hidden");
                 });
             }

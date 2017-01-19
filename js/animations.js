@@ -1,4 +1,4 @@
-var app = angular.module('directives', []);
+var app = angular.module('animations', []);
 
 app.animation('.slide-toggle-if', [function(){
     return {

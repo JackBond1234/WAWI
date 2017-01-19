@@ -7,6 +7,7 @@ angular.module('index').controller('categoryController', function($scope, $log, 
     });
     $scope.categories = {loading: true};
     $scope.$log = $log;
+    $scope.newCategory = {Name: ""};
     refresh();
 
     $scope.dragAnimationComplete = function(){
@@ -87,6 +88,26 @@ angular.module('index').controller('categoryController', function($scope, $log, 
         return true;
     };
 
+    $scope.addNewCategory = function(){
+        console.log($scope.newCategory.Name);
+        if ($scope.newCategory.Name == ""){
+            $scope.newCategory.Name = "New Category";
+        }
+
+        $.ajax({
+            method: "POST",
+            url: "../../../ajax.php",
+            data: {
+                method: "create_category",
+                newcategoryname: $scope.newCategory.Name
+            },
+            complete: function(){
+                $scope.root.ShowSecondMenu = false;
+                refresh();
+            }
+        });
+    };
+
     function refresh() {
         $.ajax({
             method: "POST",
@@ -114,6 +135,7 @@ angular.module('index').controller('categoryController', function($scope, $log, 
                             curcat = data.categories[curcat].LowerPriorityCategory;
                         }
                         $scope.categories.push({Name:"Unallocated", Balance: unallocatedBalance, Disabled: true});
+                        console.log($scope.categories);
                     }
                     else {
                         console.log(data);

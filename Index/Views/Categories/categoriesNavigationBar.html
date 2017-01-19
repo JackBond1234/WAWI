@@ -1,7 +1,7 @@
 <div class="NavBar">
     <div class="ListButtonContainer" ng-click="root.ShowFirstMenu=!root.ShowFirstMenu;root.ShowSecondMenu=false;" click-off="root.ShowFirstMenu=false"><img class='not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
     <div class="NavDisplayCategory">Categories</div>
-    <div class="ListButtonContainer-right" ng-click="root.ShowSecondMenu=!root.ShowSecondMenu;root.ShowFirstMenu=false;" click-off="root.ShowUserMenu=false"><img class="not-border-box ListButton-right" ng-src="../../../ico/plus-icon.png"/></div>
+    <div class="ListButtonContainer-right" ng-click="root.ShowSecondMenu=!root.ShowSecondMenu;root.ShowFirstMenu=false;" click-off="root.ShowSecondMenu=root.ShowSecondMenu"><img class="not-border-box ListButton-right" ng-src="../../../ico/plus-icon.png"/></div>
 </div>
 <div ng-if="root.ShowFirstMenu" class="slide-toggle-if PopupContainer FirstPopupContainer">
     <div class="NavButton" ng-click="root.ApplicationView = 'Reports'; root.ShowFirstMenu=false">
@@ -19,7 +19,8 @@
 </div>
 
 <div ng-if="root.ShowSecondMenu" class="slide-toggle-if PopupContainer SecondPopupContainer">
-    <div class="NavButton" ng-click="root.ApplicationView = 'User Profile'; root.ShowMenu=false">
-        User Profile
+    <div class="NavButton">
+        <input type="text" ng-model="newCategory.Name">
+        <button ng-click="addNewCategory()">Add Category</button>
     </div>
 </div>

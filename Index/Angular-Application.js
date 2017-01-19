@@ -1,1 +1,1 @@
-angular.module('index', ['dndLists', 'ngAnimate', 'directives']);
+angular.module('index', ['dndLists', 'ngAnimate', 'directives', 'animations']);

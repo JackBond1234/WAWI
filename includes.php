@@ -24,6 +24,7 @@ if ($CheckSessionResult->Success != true || $CheckSessionResult->Data == null) {
 }
 else
 {
+    /** @var LoginModel $LoggedInUser */
     $LoggedInUser = $CheckSessionResult->Data;
 }
 
@@ -47,3 +48,16 @@ include_once("BusinessObjects/RebalanceBusinessObject.php");
 
 include_once("Services/CategoriesService.php");
 include_once("Services/GlobalsService.php");
+
+$GlobalsDataAccess = new GlobalsDataAccess();
+$GlobalsResult = $GlobalsDataAccess->Select();
+if ($GlobalsResult->num_rows == 0){
+    $DateDataAccess = new DateDataAccess();
+    $DateModel = new DateModel();
+    $DateModel->DateId = $DateDataAccess->Insert($DateModel);
+    $GlobalsModel = new GlobalsModel();
+    $GlobalsModel->Date = $DateModel;
+    $GlobalsDataAccess->Insert($GlobalsModel);
+    echo "<meta http-equiv=\"refresh\" content=\"0; URL='".Config::ROOT_URL."/profile.php'\" />";
+    die();
+}

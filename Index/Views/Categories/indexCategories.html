@@ -1,5 +1,4 @@
 <div ng-if="!Mobile || root.ApplicationView=='Categories'">
-    <!--<div class='NavButton' ng-if="Mobile" ng-click="setView('Application')">Application</div>-->
     <div id="NavigationContainer" ng-include="'../Categories/categoriesNavigationBar.html'"></div>
     <div id='CategoryContent'>
         <div ng-if="categories.loading == true">Loading Categories...</div>

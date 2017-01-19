@@ -127,7 +127,7 @@ else
   </script>
 </head>
 <body>
-  <a href="indexOld.php">Home</a>
+  <a href="Index/Views/Main/index.php">Home</a>
   <form method='POST'>
     <div class='card padding' style='background-color:#efefef; padding:5px; margin:2px;' >
       <h4 class='card-title'>Total Balance</h4>
