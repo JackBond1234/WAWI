@@ -44,16 +44,18 @@ angular.module('index').controller('categoryController', function($scope, $log, 
         });
 
         //THIS IS UGLY. SEE IF POSSIBLE TO CONVERT THIS TO A CLASS ANIMATION
-        setTimeout(function(){
-            if (oldIndex != elementdata.ID) {
-                var element = $("#DetailBubble");
-                var width = $(element).width();
-                $(element).width(0);
-                $(element).animate({width: width + "px"}, 200, 0, function () {
-                    $(element).css('width', 'auto');
-                });
-            }
-        }, 1);
+        if (!$scope.Mobile) {
+            setTimeout(function () {
+                if (oldIndex != elementdata.ID) {
+                    var element = $("#DetailBubble");
+                    var width = $(element).width();
+                    $(element).width(0);
+                    $(element).animate({width: width + "px"}, 200, 0, function () {
+                        $(element).css('width', 'auto');
+                    });
+                }
+            }, 0);
+        }
     };
 
     $scope.dndDropCallback = function(list, index, originalindex, item, external){

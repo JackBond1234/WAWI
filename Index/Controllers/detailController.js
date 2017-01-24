@@ -37,7 +37,15 @@ angular.module('index').controller('detailController', function($scope, $log, $w
         return proposedTop;
     };
 
+    $scope.XButtonClicked = function(){
+        $scope.root.SelectedCategory = -1;
+        $("body").removeClass("noScroll");
+    };
+
     $scope.$watch("root.SelectedCategory", function(SelectedCategory) {
+        if ($scope.Mobile) {
+            $("body").addClass("noScroll");
+        }
         $scope.Details = {Name: "Loading..."};
         $timeout(function(){
             var DB = $("#DetailBubble");

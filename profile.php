@@ -1,4 +1,4 @@
-<?
+<?php
 include_once("includes.php");
 
 if (!empty($_POST)) {
@@ -131,11 +131,11 @@ else
   <form method='POST'>
     <div class='card padding' style='background-color:#efefef; padding:5px; margin:2px;' >
       <h4 class='card-title'>Total Balance</h4>
-      <p class='card-text'><span>$<input type='text' name='newtotalbalance' value='<? echo (isset($GlobalsModel->TotalBalance)?number_format($GlobalsModel->TotalBalance, 2, ".", ""):"0.00"); ?>'></span></p>
+      <p class='card-text'><span>$<input type='text' name='newtotalbalance' value='<?php echo (isset($GlobalsModel->TotalBalance)?number_format($GlobalsModel->TotalBalance, 2, ".", ""):"0.00"); ?>'></span></p>
     </div>
     <div class='card' style='background-color:#efefef; padding:5px; margin:2px;'>
       <h4 class='card-title'>Expected income per paycheck</h4>
-      <p class='card-text'><span>$<input type='text' name='newexpectedincome' value='<? echo (isset($GlobalsModel->ExpectedPeriodIncome)?number_format($GlobalsModel->ExpectedPeriodIncome, 2, ".", ""):"0.00"); ?>'></span></p>
+      <p class='card-text'><span>$<input type='text' name='newexpectedincome' value='<?php echo (isset($GlobalsModel->ExpectedPeriodIncome)?number_format($GlobalsModel->ExpectedPeriodIncome, 2, ".", ""):"0.00"); ?>'></span></p>
     </div>
     <div class='card' style='background-color:#efefef; padding:5px; margin:2px;'>
       <h4 class='card-title'>Time between paychecks</h4>
@@ -143,33 +143,33 @@ else
       Starting on
       </span>
       <span id="dialog-date">
-          <input id="dialog-datebox" name="date" type="text" value="<? echo (isset($GlobalsModel->Date->Date)?date("Y-m-d", $GlobalsModel->Date->Date):""); ?>"/>
+          <input id="dialog-datebox" name="date" type="text" value="<?php echo (isset($GlobalsModel->Date->Date)?date("Y-m-d", $GlobalsModel->Date->Date):""); ?>"/>
       </span>
       <span class="periodically">
-      and on every <input id="dialog-nthunit" name="nthunit" type="text" value="<? echo (isset($GlobalsModel->Date->NthUnit)?$GlobalsModel->Date->NthUnit:"")?>"/><span id="stndrdth">th</span>
+      and on every <input id="dialog-nthunit" name="nthunit" type="text" value="<?php echo (isset($GlobalsModel->Date->NthUnit)?$GlobalsModel->Date->NthUnit:"")?>"/><span id="stndrdth">th</span>
           <select id="dialog-unittype" name="unittype">
-            <option <? echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==0?"selected":""); ?> value="0">day</option>
-            <option <? echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==1?"selected":""); ?> value="1">week</option>
-            <option <? echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==2?"selected":""); ?> value="2">month</option>
-            <option <? echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==3?"selected":""); ?> value="3">year</option>
+            <option <?php echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==0?"selected":""); ?> value="0">day</option>
+            <option <?php echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==1?"selected":""); ?> value="1">week</option>
+            <option <?php echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==2?"selected":""); ?> value="2">month</option>
+            <option <?php echo (isset($GlobalsModel->Date->UnitType)&&$GlobalsModel->Date->UnitType==3?"selected":""); ?> value="3">year</option>
           </select>
       afterward<span class="monthly">
           <select id="dialog-usedayofweekorlastday" name="usedayofweek">
-            <option <? echo (isset($GlobalsModel->Date->UseDayOfWeek)&&$GlobalsModel->Date->UseDayOfWeek==0&&$GlobalsModel->Date->UseEndOfMonth==0?"selected":""); ?> value="0">on the same day of the month as the start</option>
-            <option <? echo (isset($GlobalsModel->Date->UseDayOfWeek)&&$GlobalsModel->Date->UseDayOfWeek==1&&$GlobalsModel->Date->UseEndOfMonth==0?"selected":""); ?> value="1">on the same week and day of week as the start</option>
-            <option <? echo (isset($GlobalsModel->Date->UseEndOfMonth)&&$GlobalsModel->Date->UseEndOfMonth==1?"selected":""); ?> value="2">on the last day of the month</option>
+            <option <?php echo (isset($GlobalsModel->Date->UseDayOfWeek)&&$GlobalsModel->Date->UseDayOfWeek==0&&$GlobalsModel->Date->UseEndOfMonth==0?"selected":""); ?> value="0">on the same day of the month as the start</option>
+            <option <?php echo (isset($GlobalsModel->Date->UseDayOfWeek)&&$GlobalsModel->Date->UseDayOfWeek==1&&$GlobalsModel->Date->UseEndOfMonth==0?"selected":""); ?> value="1">on the same week and day of week as the start</option>
+            <option <?php echo (isset($GlobalsModel->Date->UseEndOfMonth)&&$GlobalsModel->Date->UseEndOfMonth==1?"selected":""); ?> value="2">on the last day of the month</option>
           </select></span>.
       <span id="impossibledate" class="monthly">
       If the day does not exist,
               <select id="dialog-impossibledate" name="impossibledate">
-                <option <? echo (isset($GlobalsModel->Date->ImpossibleDayOfMonthBehavior)&&$GlobalsModel->Date->ImpossibleDayOfMonthBehavior==0?"selected":""); ?> value="0">perform the operation at the end of the month instead</option>
-                <option <? echo (isset($GlobalsModel->Date->ImpossibleDayOfMonthBehavior)&&$GlobalsModel->Date->ImpossibleDayOfMonthBehavior==1?"selected":""); ?> value="1">do not perform the operation</option>
+                <option <?php echo (isset($GlobalsModel->Date->ImpossibleDayOfMonthBehavior)&&$GlobalsModel->Date->ImpossibleDayOfMonthBehavior==0?"selected":""); ?> value="0">perform the operation at the end of the month instead</option>
+                <option <?php echo (isset($GlobalsModel->Date->ImpossibleDayOfMonthBehavior)&&$GlobalsModel->Date->ImpossibleDayOfMonthBehavior==1?"selected":""); ?> value="1">do not perform the operation</option>
               </select>.
           </span>
       </span>
     </div>
-  <div><input class='btn btn-primary' type='submit'></div><? if (isset($_GET["success"]) && $_GET["success"] == true) {echo "&nbsp;&nbsp;<span id='success-message'>Saved</span>";} ?>
+  <div><input class='btn btn-primary' type='submit'></div><?php if (isset($_GET["success"]) && $_GET["success"] == true) {echo "&nbsp;&nbsp;<span id='success-message'>Saved</span>";} ?>
   </form>
 </body>
 </html>
-<? } ?>
+<?php } ?>

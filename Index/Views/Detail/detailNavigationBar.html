@@ -1,6 +1,7 @@
-<div class="NavBar curve-top-left curve-top-right" ng-style="{'background-color': Details.Color}">
-    <div class="ListButtonContainer" ng-show="Details.Success" ng-click="root.ShowDetailMenu=!root.ShowDetailMenu;root.ShowAppMenu=false;root.ShowUserMenu=false" click-off="root.ShowDetailMenu=false"><img ng-style="{'background-color': changeBrightness(Details.Color, -0.25)}" class='curve-top-left not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
+<div class="NavBar curve-top-left-desktop curve-top-right-desktop" ng-style="{'background-color': Details.Color}">
+    <div class="ListButtonContainer" ng-show="Details.Success" ng-click="root.ShowDetailMenu=!root.ShowDetailMenu;root.ShowAppMenu=false;root.ShowUserMenu=false" click-off="root.ShowDetailMenu=false"><img ng-style="{'background-color': changeBrightness(Details.Color, -0.25)}" class='curve-top-left-desktop not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
     <div class="NavDisplayCategory">{{Details.Name}}</div>
+    <div class="ListButtonContainer-right" ng-show="Details.Success" ng-click="XButtonClicked()" click-off="root.ShowSecondMenu=root.ShowSecondMenu"><img ng-style="{'background-color': changeBrightness(Details.Color, 0.25)}" class="curve-top-right-desktop not-border-box ListButton-right" ng-src="../../../ico/x-mark.png"/></div>
 </div>
 <div ng-style="{'background-color': changeBrightness(Details.Color, -0.25)}" ng-if="root.ShowDetailMenu" class="slide-toggle-if PopupContainer DetailPopupContainer">
     <div class="NavButton" ng-click="root.DetailView = 'Settings'; root.ShowMenu=false">

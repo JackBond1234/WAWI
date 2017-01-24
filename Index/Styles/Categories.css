@@ -16,7 +16,6 @@
     position:relative;
     background-color:#FFFFFF;
     border:1px solid;
-    /*margin-top:-1px;*/
     margin: 2px;
     z-index:1;
 }
@@ -48,9 +47,6 @@
 .categories-list-item .category-balance {
     float:right;
     display: inline-block;
-    /*display:table-cell;*/
-    /*max-width:100%;*/
-    /*text-align:right;*/
 }
 
 .categories-lite-item .category-name .category-name-container{
@@ -64,12 +60,6 @@
     flex: 1;
     display:inline-block;
     overflow-x: hidden;
-
-    /*display:table-cell;*/
-    /*overflow:hidden;*/
-    /*white-space:nowrap;*/
-    /*text-align:left;*/
-    /*width:100%;*/
 }
 
 .category-row-details{
@@ -80,8 +70,6 @@
 .category-row-details tr{
     display: flex;
     align-items:stretch;
-    /*display:table;*/
-    /*table-layout:fixed;*/
 }
 
 .category-grip-container{

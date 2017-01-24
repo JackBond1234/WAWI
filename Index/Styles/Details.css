@@ -35,26 +35,32 @@
     width: 90%;
 }
 
-#DetailContent .detail-field-group{
+.detail-field-group{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
-
     background-color: #EFEFEF;
 }
 
 @media(max-width:599px){
     #DetailContainer{
-        z-index:3;
+        z-index:6;
         position:fixed;
         left:0;
         top:0;
         right:0;
         bottom:0;
+        background-color:#FFFFFF;
     }
 
-    #DetailBubble{
-        background-color:#FFFFFF;
+    #DetailContent{
+        overflow-y:scroll;
+        height:100%;
+        margin-top: -40px;
+    }
+
+    .DetailBuffer {
+        height:40px;
     }
 }
 

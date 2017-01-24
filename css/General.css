@@ -6,3 +6,20 @@
     border-top-right-radius: 10px;
 }
 
+.noScroll {
+    overflow:hidden;
+}
+
+.scroll {
+    overflow:scroll;
+}
+
+@media(min-width:600px) {
+    .curve-top-left-desktop{
+        border-top-left-radius: 10px;
+    }
+
+    .curve-top-right-desktop{
+        border-top-right-radius: 10px;
+    }
+}
