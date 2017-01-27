@@ -3,6 +3,23 @@
     min-height:100vh;
 }
 
+#ApplicationReportsContainer{
+    height: 100vh;
+    background-color: #FFEEEE;
+}
+#ApplicationDistributeContainer{
+    height: 100vh;
+    background-color: #EEFFEE;
+}
+#ApplicationBankContainer{
+    height: 100vh;
+    background-color: #EEEEFF;
+}
+#ApplicationUserProfileContainer{
+    height: 100vh;
+    background-color: #FFFFEE;
+}
+
 @media(min-width:600px){
     #ApplicationContainer{
         position:fixed;

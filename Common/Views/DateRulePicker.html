@@ -1,37 +1,77 @@
-<select id="whenToPerformAction">
-    <option value="0">On a specific date</option>
-    <option value="1">Periodically</option>
+<div class="labelContainer">
+    <label>
+        Frequency
+    </label>
+</div>
+<select id="frequency">
+    <option value="4">Once</option>
+    <option value="0">Daily</option>
+    <option value="1">Weekly</option>
+    <option value="2">Monthly</option>
+    <option value="3">Yearly</option>
 </select>
-<br>
-<span> starting on </span>
 
-<input id="actionStartDate">
-<br>
-<span> and on every </span>
+<div class="labelContainer">
+    <label>
+        Start Date
+    </label>
+</div>
+<input type="date">
 
-<input id="nth-unit">
+<div class="labelContainer">
+    <label>
+        <span>Day</span>
+        <!--<span>Week</span>-->
+        <!--<span>Month</span>-->
+        <!--<span>Year</span>-->
+        s after which to repeat
+    </label>
+</div>
+<input type="number">
 
-<span>th </span>
-
-<select id="unit-type">
-    <option value="0">day</option>
-    <option value="1">week</option>
-    <option value="2">month</option>
-    <option value="3">year</option>
+<div class="labelContainer">
+    <label>Monthly Pattern</label>
+</div>
+<select id="monthpattern">
+    <option value="0">Same day of the month</option>
+    <option value="1">Same week of month / day of week</option>
+    <option value="2">Last day of the month</option>
 </select>
-<br>
-<select id="use-dayofweek-or-lastday">
-    <option value="0">on the same day of the month as the start</option>
-    <option value="1">on the same week of the month and day of week as the start</option>
-    <option value="2">on the last day of the month</option>
-</select>
-<br>
-<span> if the day does not exist </span>
 
-<select id="impossible-date">
-    <option value="0">perform the operation at the end of the month instead</option>
-    <option value="1">do not perform the operation</option>
-</select>
+<!--<select id="whenToPerformAction">-->
+    <!--<option value="0">On a specific date</option>-->
+    <!--<option value="1">Periodically</option>-->
+<!--</select>-->
+<!--<br>-->
+<!--<span> starting on </span>-->
+
+<!--<input id="actionStartDate">-->
+<!--<br>-->
+<!--<span> and on every </span>-->
+
+<!--<input id="nth-unit">-->
+
+<!--<span>th </span>-->
+
+<!--<select id="unit-type">-->
+    <!--<option value="0">day</option>-->
+    <!--<option value="1">week</option>-->
+    <!--<option value="2">month</option>-->
+    <!--<option value="3">year</option>-->
+<!--</select>-->
+<!--<br>-->
+<!--<select id="use-dayofweek-or-lastday">-->
+    <!--<option value="0">on the same day of the month as the start</option>-->
+    <!--<option value="1">on the same week of the month and day of week as the start</option>-->
+    <!--<option value="2">on the last day of the month</option>-->
+<!--</select>-->
+<!--<br>-->
+<!--<span> if the day does not exist </span>-->
+
+<!--<select id="impossible-date">-->
+    <!--<option value="0">perform the operation at the end of the month instead</option>-->
+    <!--<option value="1">do not perform the operation</option>-->
+<!--</select>-->
 
 <!--
 

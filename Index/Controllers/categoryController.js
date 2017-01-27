@@ -10,6 +10,12 @@ angular.module('index').controller('categoryController', function($scope, $log, 
     $scope.newCategory = {Name: ""};
     refresh();
 
+    $scope.$watch("root.SelectedCategory", function(newValue){
+        if (newValue === -1){
+            deselectAllCategories();
+        }
+    });
+
     $scope.dragAnimationComplete = function(){
         console.log("Drag Animation Complete!!!");
         var DB = $("#DetailBubble");
@@ -35,9 +41,7 @@ angular.module('index').controller('categoryController', function($scope, $log, 
 
     $scope.categoryClickHandler = function(elementid, elementdata){
         var oldIndex = $scope.root.SelectedCategory;
-        for(var index in $scope.categories){
-            $scope.categories[index].Selected = false;
-        }
+        deselectAllCategories();
         $scope.$apply(function(){
             $scope.categories[elementid].Selected = true;
             $scope.root.SelectedCategory = elementdata.ID;
@@ -153,5 +157,13 @@ angular.module('index').controller('categoryController', function($scope, $log, 
                 });
             }
         });
+    }
+
+    function deselectAllCategories(){
+        for(var index in $scope.categories){
+            if($scope.categories.hasOwnProperty(index)) {
+                $scope.categories[index].Selected = false;
+            }
+        }
     }
 });

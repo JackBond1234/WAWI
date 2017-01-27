@@ -17,9 +17,9 @@ angular.module('index').controller('detailController', function($scope, $log, $w
             var docheight = Math.max(body.scrollHeight, body.offsetHeight,
                 html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-            console.log("DB TOP: " + DB.css("top"));
-            console.log("EL TOP: " + EL.css("top"));
-            console.log("docheight: " + docheight);
+            //console.log("DB TOP: " + DB.css("top"));
+            //console.log("EL TOP: " + EL.css("top"));
+            //console.log("docheight: " + docheight);
 
             var proposedTop = EL.offset().top + EL.outerHeight() / 2 - DB.outerHeight() / 2;
 

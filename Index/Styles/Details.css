@@ -7,11 +7,16 @@
     text-align: center;
 }
 
-#DetailContent label {
+#DetailContent .detail-label label {
     font-size: medium;
     font-weight: bold;
     margin-top: 2px;
     margin-bottom: 2px;
+}
+
+#DetailContent .labelContainer {
+    margin-top: 8px;
+    font-size: small;
 }
 
 #DetailContent input, #DetailContent select {
@@ -19,20 +24,24 @@
     font-size: medium;
     border-radius: 5px;
     text-align: center;
-    max-width: 90%;
+    text-align-last: center;
     border: 0;
     background-color: white;
     margin-top: 2px;
     margin-bottom: 2px;
+    width: 90%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#DetailContent select option {
+    text-align: left;
 }
 
 #DetailContent input:focus, #DetailContent select:focus{
     outline: 0;
     box-shadow: inset 0 0 5px #ABABAB;
-}
-
-#DetailContent input {
-    width: 90%;
 }
 
 .detail-field-group{
@@ -56,11 +65,17 @@
     #DetailContent{
         overflow-y:scroll;
         height:100%;
-        margin-top: -40px;
     }
 
     .DetailBuffer {
         height:40px;
+    }
+
+    #DetailNavBar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 }
 

@@ -1,5 +1,5 @@
 <div class="NavBar">
-    <div class="ListButtonContainer" ng-click="root.ShowFirstMenu=!root.ShowFirstMenu;root.ShowSecondMenu=false;" click-off="root.ShowFirstMenu=false"><img class='not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
+    <div class="ListButtonContainer" ng-if="Mobile" ng-click="root.ApplicationView = 'Reports'" click-off="root.ShowFirstMenu=false"><img class='not-border-box ListButton' ng-src="../../../ico/list.png"/></div>
     <div class="NavDisplayCategory">Categories</div>
     <div class="ListButtonContainer-right" ng-click="root.ShowSecondMenu=!root.ShowSecondMenu;root.ShowFirstMenu=false;" click-off="root.ShowSecondMenu=root.ShowSecondMenu"><img class="not-border-box ListButton-right" ng-src="../../../ico/plus-icon.png"/></div>
 </div>
